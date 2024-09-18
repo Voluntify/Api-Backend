@@ -24,6 +24,7 @@ public class US04Service {
         VoluntariadosTotalDTO Volunt;
         for (Tuple tuple : tuplas) {
             Volunt = new VoluntariadosTotalDTO(
+                    tuple.get("codigo", Long.class),
                     tuple.get("nombre", String.class),
                     tuple.get("descripcion", String.class),
                     tuple.get("ubicacion", String.class),
@@ -40,6 +41,7 @@ public class US04Service {
         VoluntariadoPorNombreDTO recaud;
         for (Tuple tuple : tuplas) {
             recaud = new VoluntariadoPorNombreDTO(
+                    tuple.get("codigo", Long.class),
                     tuple.get("nombre", String.class),
                     tuple.get("descripcion", String.class)
             );

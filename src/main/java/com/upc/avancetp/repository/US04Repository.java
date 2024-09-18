@@ -10,10 +10,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface US04Repository extends JpaRepository<Voluntariados, Long> {
-    @Query(value="select titulo as nombre, descripcion as descripcion, ubicacion as ubicacion, requisitos as requisitos from voluntariados", nativeQuery = true)
+    @Query(value="select codigo as codigo, titulo as nombre, descripcion as descripcion, ubicacion as ubicacion, requisitos as requisitos from voluntariados", nativeQuery = true)
     List<Tuple> VoluntariadosTodos();
 
-    @Query(value="SELECT v.titulo AS nombre, v.descripcion AS descripcion\n" +
+    @Query(value="SELECT v.codigo as codigo, v.titulo AS nombre, v.descripcion AS descripcion\n" +
             "FROM voluntariados v\n" +
             "JOIN asistencias a ON v.codigo = a.id_voluntariados\n" +
             "JOIN usuarios u ON a.id_usuarios = u.codigo\n" +

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VoluntariadoPorNombreDTO {
+    private Long codigo;
     private String nombre;
     private String descripcion;
 }
