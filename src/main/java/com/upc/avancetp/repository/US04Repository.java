@@ -13,12 +13,6 @@ public interface US04Repository extends JpaRepository<Voluntariados, Long> {
     @Query(value="select codigo as codigo, titulo as nombre, descripcion as descripcion, ubicacion as ubicacion, requisitos as requisitos from voluntariados", nativeQuery = true)
     List<Tuple> VoluntariadosTodos();
 
-    @Query(value="SELECT v.codigo as codigo, v.titulo AS nombre, v.descripcion AS descripcion\n" +
-            "FROM voluntariados v\n" +
-            "JOIN asistencias a ON v.codigo = a.id_voluntariados\n" +
-            "JOIN usuarios u ON a.id_usuarios = u.codigo\n" +
-            "JOIN intereses_por_usuarios ipu ON u.codigo = ipu.id_usuarios\n" +
-            "JOIN intereses i ON ipu.id_intereses = i.codigo\n" +
-            "WHERE v.titulo = :name;", nativeQuery = true)
+    @Query(value="SELECT v.codigo as codigo, v.titulo AS nombre, v.descripcion AS descripcion FROM voluntariados v WHERE v.titulo = :name;", nativeQuery = true)
     List<Tuple> VoluntariadoPorNombre(@Param("name") String name);
 }
