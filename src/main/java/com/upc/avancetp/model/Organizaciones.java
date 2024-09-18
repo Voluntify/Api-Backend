@@ -36,7 +36,7 @@ public class Organizaciones {
     @OneToMany(mappedBy = "organizaciones", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Certificados> certificados; //RELACION 1 A MUCHOS CON "Certificados"
 
-    public Organizaciones(String nombre, String descripcion, String correo, Long telefono, String direccion, String sitio_web, String fecha_registro, boolean suscripcion_activa, String nivel_suscripcion) {
+    public Organizaciones(String nombre, String descripcion, String correo, Long telefono, String direccion, String sitio_web, LocalDate fecha_registro, boolean suscripcion_activa, String nivel_suscripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.correo = correo;
