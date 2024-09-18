@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/RegistroDeNuevoUsuario")
-public class US01Controller {
+public class UsuariosController {
     final US01Service us01Service;
 
-    public US01Controller(US01Service us01Service) {
+    public UsuariosController(US01Service us01Service) {
         this.us01Service = us01Service;
     }
 
