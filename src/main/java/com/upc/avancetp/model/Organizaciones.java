@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -19,7 +20,7 @@ public class Organizaciones {
     private Long telefono;
     private String direccion;
     private String sitio_web;
-    private String fecha_registro;
+    private LocalDate fecha_registro;
     private boolean suscripcion_activa;
     private String nivel_suscripcion;
 
