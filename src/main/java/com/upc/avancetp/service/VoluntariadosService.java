@@ -34,12 +34,5 @@ public class VoluntariadosService {
         voluntariadosDTO.setId_organizaciones(voluntariados.getOrganizaciones().getCodigo());
         voluntariadosDTO.setId_categorias(voluntariados.getCategorias().getCodigo());
         return voluntariadosDTO;
-
-//        Organizaciones organizaciones = organizacionesRepository.findById(voluntariadosDTO.getId_organizaciones())
-//                .orElseThrow(() -> new RuntimeException("Organización no encontrada"));
-//        Voluntariados voluntariados = modelMapper.map(voluntariadosDTO, Voluntariados.class);
-//        voluntariados.setOrganizaciones(organizaciones); // Asignamos la organización existente
-//        voluntariados = voluntariadosRepository.save(voluntariados);
-//        return modelMapper.map(voluntariados, VoluntariadosDTO.class);
     }
 }
