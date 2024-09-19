@@ -16,8 +16,10 @@ public class OrganizacionesService {
 
     public OrganizacionesDTO save(OrganizacionesDTO organizacionesDTO) {
         ModelMapper modelMapper = new ModelMapper();
+        System.out.println("Hola2");
         Organizaciones organizaciones = modelMapper.map(organizacionesDTO, Organizaciones.class);
         organizaciones = organizacionesRepository.save(organizaciones);
         return modelMapper.map(organizaciones, OrganizacionesDTO.class);
     }
+
 }
