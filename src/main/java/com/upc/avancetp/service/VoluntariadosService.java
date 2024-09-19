@@ -29,7 +29,6 @@ public class VoluntariadosService {
         voluntariados.setOrganizaciones(organizaciones);
         voluntariados.setCategorias(categorias);
         voluntariados = voluntariadosRepository.save(voluntariados);
-        System.out.println("Holam voluntariados " + voluntariados);
 
         modelMapper.map(voluntariados, voluntariadosDTO);
         voluntariadosDTO.setId_organizaciones(voluntariados.getOrganizaciones().getCodigo());
