@@ -1,21 +1,15 @@
 package com.upc.avancetp.service;
 
 import com.upc.avancetp.dto.InscripcionesDTO;
-import com.upc.avancetp.dto.OrganizacionesTotalDTO;
-import com.upc.avancetp.dto.UsuarioDTO;
 import com.upc.avancetp.model.Inscripciones;
 import com.upc.avancetp.model.Usuarios;
 import com.upc.avancetp.model.Voluntariados;
 import com.upc.avancetp.repository.US01Repository;
 import com.upc.avancetp.repository.US04Repository;
 import com.upc.avancetp.repository.US06Repository;
-import jakarta.persistence.Tuple;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class US06Service {

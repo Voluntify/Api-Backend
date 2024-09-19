@@ -2,8 +2,6 @@ package com.upc.avancetp.service;
 
 import com.upc.avancetp.dto.OrganizacionesPorNombreDTO;
 import com.upc.avancetp.dto.OrganizacionesTotalDTO;
-import com.upc.avancetp.dto.VoluntariadoPorNombreDTO;
-import com.upc.avancetp.dto.VoluntariadosTotalDTO;
 import com.upc.avancetp.repository.US05Repository;
 import jakarta.persistence.Tuple;
 import org.springframework.stereotype.Service;

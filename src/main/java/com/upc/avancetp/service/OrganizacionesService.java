@@ -1,8 +1,6 @@
 package com.upc.avancetp.service;
 
-import com.upc.avancetp.dto.InteresDTO;
 import com.upc.avancetp.dto.OrganizacionesDTO;
-import com.upc.avancetp.model.Intereses;
 import com.upc.avancetp.model.Organizaciones;
 import com.upc.avancetp.repository.OrganizacionesRepository;
 import org.modelmapper.ModelMapper;
