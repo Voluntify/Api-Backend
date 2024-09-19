@@ -18,4 +18,5 @@ public class VoluntariadosDTO {
     private String ubicacion;
     private String requisitos;
     private Long id_organizaciones;
+    private Long id_categorias;
 }
