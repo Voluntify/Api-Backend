@@ -1,12 +1,8 @@
 package com.upc.avancetp.service;
 
 import com.upc.avancetp.dto.*;
-import com.upc.avancetp.model.*;
-import com.upc.avancetp.repository.OrganizacionesRepository;
-import com.upc.avancetp.repository.US01Repository;
 import com.upc.avancetp.repository.US08Repository;
 import jakarta.persistence.Tuple;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
