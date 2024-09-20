@@ -19,9 +19,8 @@ public class Categorias {
     @OneToMany(mappedBy = "categorias", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Voluntariados> voluntariados; //RELACION 1 A MUCHOS CON "Voluntariados"
 
-    public Categorias(String nombre, String descripcion, List<Voluntariados> voluntariados) {
+    public Categorias(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.voluntariados = voluntariados;
     }
 }
