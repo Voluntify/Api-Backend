@@ -1,8 +1,6 @@
 package com.upc.avancetp.controller;
 
-import com.upc.avancetp.dto.CategoriasDTO;
 import com.upc.avancetp.dto.HabilidadesDTO;
-import com.upc.avancetp.dto.InteresDTO;
 import com.upc.avancetp.service.HabilidadeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

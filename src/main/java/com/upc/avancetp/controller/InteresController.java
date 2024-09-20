@@ -1,6 +1,5 @@
 package com.upc.avancetp.controller;
 
-import com.upc.avancetp.dto.HabilidadesDTO;
 import com.upc.avancetp.dto.InteresDTO;
 import com.upc.avancetp.service.InteresService;
 import org.springframework.http.HttpStatus;

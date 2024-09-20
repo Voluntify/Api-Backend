@@ -2,8 +2,6 @@ package com.upc.avancetp.controller;
 
 import com.upc.avancetp.dto.OrganizacionesPorNombreDTO;
 import com.upc.avancetp.dto.OrganizacionesTotalDTO;
-import com.upc.avancetp.dto.VoluntariadoPorNombreDTO;
-import com.upc.avancetp.dto.VoluntariadosTotalDTO;
 import com.upc.avancetp.service.US05Service;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
