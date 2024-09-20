@@ -16,15 +16,10 @@ import java.util.List;
 @Service
 public class US08Service {
     final US08Repository us08Repository;
-    final OrganizacionesRepository organizacionesRepository;
-    final US01Repository us01Repository;
 
-    public US08Service(US08Repository us08Repository, OrganizacionesRepository organizacionesRepository, US01Repository us01Repository) {
+    public US08Service(US08Repository us08Repository) {
         this.us08Repository = us08Repository;
-        this.organizacionesRepository = organizacionesRepository;
-        this.us01Repository = us01Repository;
     }
-
 
     public List<CertificadosPorUsuarioDTO> certificadosPorUsuarioList(Long Codigo_Usuario) {
         List<Tuple> tuplas = us08Repository.certificadosPorUsuario(Codigo_Usuario);
