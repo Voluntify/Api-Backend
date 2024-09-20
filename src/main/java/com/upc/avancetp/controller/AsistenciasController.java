@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/RegistrarAsistencia")
+@RequestMapping("api/Asistencias")
 public class AsistenciasController {
     final AsistenciasService asistenciasService;
 
@@ -20,12 +20,12 @@ public class AsistenciasController {
         this.asistenciasService = asistenciasService;
     }
 
-    @PostMapping
+    @PostMapping("Registro")
     public ResponseEntity<AsistenciasDTO> create(@RequestBody AsistenciasDTO asistenciasDTO) {
         return new ResponseEntity<>(asistenciasService.save(asistenciasDTO), HttpStatus.CREATED);
     }
 
-    @GetMapping
+    @GetMapping("Ver")
     public ResponseEntity<List<AsistenciasDTO>> ListaAsistencias() {
         return ResponseEntity.ok(asistenciasService.asistenciasMostrar());
     }

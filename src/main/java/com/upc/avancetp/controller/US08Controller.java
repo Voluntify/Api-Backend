@@ -12,17 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/Certificados")
+@RequestMapping("api/VerCertificados")
 public class US08Controller {
     final US08Service us08Service;
 
     public US08Controller(US08Service us08Service) {
         this.us08Service = us08Service;
-    }
-
-    @PostMapping("Registrar")
-    public ResponseEntity<CertificadosDTO> create(@RequestBody CertificadosDTO certificadosDTO) {
-        return new ResponseEntity<>(us08Service.save(certificadosDTO), HttpStatus.CREATED);
     }
 
     @GetMapping("PorUsuario")

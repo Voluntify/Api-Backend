@@ -25,21 +25,6 @@ public class US08Service {
         this.us01Repository = us01Repository;
     }
 
-    public CertificadosDTO save(CertificadosDTO certificadosDTO) {
-        ModelMapper modelMapper = new ModelMapper();
-        Certificados certificados = modelMapper.map(certificadosDTO, Certificados.class);
-        Organizaciones organizaciones = organizacionesRepository.findById(certificadosDTO.getId_organizaciones()).orElse(null);
-        Usuarios usuarios = us01Repository.findById(certificadosDTO.getId_usuarios()).orElse(null);
-
-        certificados.setOrganizaciones(organizaciones);
-        certificados.setUsuarios(usuarios);
-        certificados = us08Repository.save(certificados);
-
-        modelMapper.map(certificadosDTO, certificadosDTO);
-        certificadosDTO.setId_organizaciones(certificados.getOrganizaciones().getCodigo());
-        certificadosDTO.setId_usuarios(certificados.getUsuarios().getCodigo());
-        return certificadosDTO;
-    }
 
     public List<CertificadosPorUsuarioDTO> certificadosPorUsuarioList(Long Codigo_Usuario) {
         List<Tuple> tuplas = us08Repository.certificadosPorUsuario(Codigo_Usuario);
