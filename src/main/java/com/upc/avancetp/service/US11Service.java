@@ -4,18 +4,18 @@ import com.upc.avancetp.dto.VoluntariadosDTO;
 import com.upc.avancetp.model.*;
 import com.upc.avancetp.repository.CategoriasRepository;
 import com.upc.avancetp.repository.US09Repository;
-import com.upc.avancetp.repository.VoluntariadosRepository;
+import com.upc.avancetp.repository.US11Repository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 @Service
-public class VoluntariadosService {
-    private final VoluntariadosRepository voluntariadosRepository;
+public class US11Service {
+    private final US11Repository us11Repository;
     private final US09Repository us09Repository;
     private final CategoriasRepository categoriasRepository;
 
-    public VoluntariadosService(VoluntariadosRepository voluntariadosRepository, US09Repository us09Repository, CategoriasRepository categoriasRepository) {
-        this.voluntariadosRepository = voluntariadosRepository;
+    public US11Service(US11Repository us11Repository, US09Repository us09Repository, CategoriasRepository categoriasRepository) {
+        this.us11Repository = us11Repository;
         this.us09Repository = us09Repository;
         this.categoriasRepository = categoriasRepository;
     }
@@ -28,7 +28,7 @@ public class VoluntariadosService {
 
         voluntariados.setOrganizaciones(organizaciones);
         voluntariados.setCategorias(categorias);
-        voluntariados = voluntariadosRepository.save(voluntariados);
+        voluntariados = us11Repository.save(voluntariados);
 
         modelMapper.map(voluntariados, voluntariadosDTO);
         voluntariadosDTO.setId_organizaciones(voluntariados.getOrganizaciones().getCodigo());

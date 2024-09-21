@@ -1,24 +1,24 @@
 package com.upc.avancetp.controller;
 
 import com.upc.avancetp.dto.VoluntariadosDTO;
-import com.upc.avancetp.service.VoluntariadosService;
+import com.upc.avancetp.service.US11Service;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/voluntariados")
-public class VoluntariadosController {
+@RequestMapping("/api/RegistrarVoluntariados")
+public class US11Controller {
 
-    private final VoluntariadosService voluntariadosService;
+    private final US11Service us11Service;
 
-    public VoluntariadosController(VoluntariadosService voluntariadosService) {
-        this.voluntariadosService = voluntariadosService;
+    public US11Controller(US11Service us11Service) {
+        this.us11Service = us11Service;
     }
 
     // Endpoint para registrar un nuevo voluntariado
     @PostMapping
     public ResponseEntity<VoluntariadosDTO> registrarVoluntariado(@RequestBody VoluntariadosDTO voluntariadosDTO) {
-        return new ResponseEntity<>(voluntariadosService.save(voluntariadosDTO), HttpStatus.CREATED);
+        return new ResponseEntity<>(us11Service.save(voluntariadosDTO), HttpStatus.CREATED);
     }
 }
