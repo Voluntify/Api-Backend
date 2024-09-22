@@ -19,4 +19,5 @@ public class OrganizacionesDTO {
     private LocalDate fecha_registro;
     private boolean suscripcion_activa;
     private String nivel_suscripcion;
+    private String contrasena;
 }

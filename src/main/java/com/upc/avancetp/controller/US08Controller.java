@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/VerCertificados")
+@RequestMapping("api/admin")
 public class US08Controller {
     final US08Service us08Service;
 
@@ -20,7 +20,7 @@ public class US08Controller {
         this.us08Service = us08Service;
     }
 
-    @GetMapping("PorUsuario")
+    @GetMapping("VerCertificadosPorUsuario")
     public ResponseEntity<List<CertificadosPorUsuarioDTO>> ListaCertificadosPorUsuario(
             @RequestParam("Codigo_Usuario") Long Codigo_Usuario) {
         return ResponseEntity.ok(us08Service.certificadosPorUsuarioList(Codigo_Usuario));

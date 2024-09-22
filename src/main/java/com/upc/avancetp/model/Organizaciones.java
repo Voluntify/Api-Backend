@@ -23,6 +23,8 @@ public class Organizaciones {
     private LocalDate fecha_registro;
     private boolean suscripcion_activa;
     private String nivel_suscripcion;
+    private String contrasena;
+    private String rol;
 
     @OneToMany(mappedBy = "organizaciones", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Voluntariados> voluntariados; //RELACION 1 A MUCHOS CON "Voluntariados"
@@ -36,7 +38,11 @@ public class Organizaciones {
     @OneToMany(mappedBy = "organizaciones", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Certificados> certificados; //RELACION 1 A MUCHOS CON "Certificados"
 
-    public Organizaciones(String nombre, String descripcion, String correo, Long telefono, String direccion, String sitio_web, LocalDate fecha_registro, boolean suscripcion_activa, String nivel_suscripcion) {
+    @OneToMany(mappedBy = "organizaciones", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Roles_Organizaciones> role;
+
+
+    public Organizaciones(String nombre, String descripcion, String correo, Long telefono, String direccion, String sitio_web, LocalDate fecha_registro, boolean suscripcion_activa, String nivel_suscripcion, String contrasena, List<Roles_Organizaciones> role) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.correo = correo;
@@ -46,5 +52,7 @@ public class Organizaciones {
         this.fecha_registro = fecha_registro;
         this.suscripcion_activa = suscripcion_activa;
         this.nivel_suscripcion = nivel_suscripcion;
+        this.contrasena = contrasena;
+        this.role = role;
     }
 }

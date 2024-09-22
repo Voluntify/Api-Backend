@@ -10,7 +10,8 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-public class Usuarios {
+
+public class Usuarios{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
@@ -40,7 +41,10 @@ public class Usuarios {
     @OneToMany(mappedBy = "usuarios", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Usuarios_Por_Habilidades> usuariosPorHabilidades; //RELACION 1 A MUCHOS CON "Usuarios_Por_Habilidades"
 
-    public Usuarios(String nombre, String apellido, String correo, String contrasena, Long telefono, String direccion, LocalDate fecha_registro) {
+    @OneToMany(mappedBy = "usuarios", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Roles_Usuarios> role;
+
+    public Usuarios(String nombre, String apellido, String correo, String contrasena, Long telefono, String direccion, LocalDate fecha_registro, List<Roles_Usuarios> role) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
@@ -48,5 +52,6 @@ public class Usuarios {
         this.telefono = telefono;
         this.direccion = direccion;
         this.fecha_registro = fecha_registro;
+        this.role = role;
     }
 }
