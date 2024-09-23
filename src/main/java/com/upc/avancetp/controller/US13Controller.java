@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/admin")
 public class US13Controller {
 
-    @Autowired
-    private US13Service us13Service;
+    final US13Service us13Service;
+    public US13Controller(US13Service us13Service) {
+        this.us13Service = us13Service;
+    }
 
-    @PutMapping("/inscripciones/estado")
+    @PutMapping("/EstadoDeInscripciones")
     public ResponseEntity<InscripcionesDTO> approveOrRejectInscripcion(
             @RequestParam Long id,
             @RequestParam boolean estado) {
