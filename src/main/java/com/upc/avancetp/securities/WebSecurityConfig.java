@@ -58,6 +58,10 @@ public class WebSecurityConfig {
                 .requestMatchers("/authenticate").permitAll() //.hasAuthority("ADMIN")
                 .requestMatchers("/api/admin/").hasAuthority("ADMIN")
                 .requestMatchers("/api/user/").hasAuthority("USER")
+                .requestMatchers("api/RegistroDeNuevoUsuario").permitAll()
+                .requestMatchers("api/VerHabilidades").permitAll()
+                .requestMatchers("api/VerIntereses").permitAll()
+                .requestMatchers("api/RegistroDeOrganizacion").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling((exceptions) -> exceptions

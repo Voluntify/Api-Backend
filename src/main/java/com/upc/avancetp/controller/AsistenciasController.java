@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/RegistroDeAsistencias")
+@RequestMapping("api/admin")
 public class AsistenciasController {
     final AsistenciasService asistenciasService;
 
@@ -15,7 +15,7 @@ public class AsistenciasController {
         this.asistenciasService = asistenciasService;
     }
 
-    @PostMapping
+    @PostMapping("RegistroDeAsistencias")
     public ResponseEntity<AsistenciasDTO> create(@RequestBody AsistenciasDTO asistenciasDTO) {
         return new ResponseEntity<>(asistenciasService.save(asistenciasDTO), HttpStatus.CREATED);
     }

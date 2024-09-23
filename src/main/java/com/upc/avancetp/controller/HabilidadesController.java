@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/Habilidades")
+@RequestMapping
 public class HabilidadesController {
     final HabilidadeService habilidadeService;
 
@@ -17,12 +17,12 @@ public class HabilidadesController {
         this.habilidadeService = habilidadeService;
     }
 
-    @PostMapping("Registro")
+    @PostMapping("api/admin/RegistroHabilidades")
     public ResponseEntity<HabilidadesDTO> create(@RequestBody HabilidadesDTO habilidadesDTO) {
         return new ResponseEntity<>(habilidadeService.save(habilidadesDTO), HttpStatus.CREATED);
     }
 
-    @GetMapping("Ver")
+    @GetMapping("api/VerHabilidades")
     public ResponseEntity<List<HabilidadesDTO>> ListaHabilidades() {
         return ResponseEntity.ok(habilidadeService.habilidadesMostrar());
     }

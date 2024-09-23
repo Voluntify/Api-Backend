@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/Categorias")
+@RequestMapping
 public class CategoriasController {
     final CategoriasService categoriasService;
 
@@ -19,12 +19,12 @@ public class CategoriasController {
         this.categoriasService = categoriasService;
     }
 
-    @PostMapping("Registro")
+    @PostMapping("api/admin/RegistroDeCategorias")
     public ResponseEntity<CategoriasDTO> create(@RequestBody CategoriasDTO categoriasDTO) {
         return new ResponseEntity<>(categoriasService.save(categoriasDTO), HttpStatus.CREATED);
     }
 
-    @GetMapping("Ver")
+    @GetMapping("api/user/VerCategorias")
     public ResponseEntity<List<CategoriasDTO>> ListaCategorias() {
         return ResponseEntity.ok(categoriasService.categoriasMostrar());
     }
