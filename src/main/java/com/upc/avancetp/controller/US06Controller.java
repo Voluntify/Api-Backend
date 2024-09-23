@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("api/InscripcionAVoluntariado")
+@RequestMapping("api/user")
 public class US06Controller {
     final US06Service us06Service;
 
@@ -16,7 +16,7 @@ public class US06Controller {
         this.us06Service = us06Service;
     }
 
-    @PostMapping
+    @PostMapping("InscripcionAVoluntariado")
     public ResponseEntity<InscripcionesDTO> create(@RequestBody InscripcionesDTO inscripcionesDTO) {
         return new ResponseEntity<>(us06Service.save(inscripcionesDTO), HttpStatus.CREATED);
     }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("api/admin")
 public class US12Controller {
     final US12Service us12Service;
 
@@ -20,12 +20,12 @@ public class US12Controller {
         this.us12Service = us12Service;
     }
 
-    @GetMapping("Ver/Inscripciones/PorVoluntariado")
+    @GetMapping("VerInscripcionesPorVoluntariado")
     public ResponseEntity<List<InscripcionesDTO>> ListaInscripcionesVoluntariado(@RequestParam("name") String name) {
         return ResponseEntity.ok(us12Service.inscripcionesMostrarPorVoluntariado(name));
     }
 
-    @GetMapping("Ver/Inscripciones/PorUsuario")
+    @GetMapping("VerInscripcionesPorUsuario")
     public ResponseEntity<List<InscripcionesDTO>> ListaInscripcionesUsuarios(@RequestParam("name") String name) {
         return ResponseEntity.ok(us12Service.inscripcionesMostrarPorUsuario(name));
     }

@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/RegistrarVoluntariados")
+@RequestMapping("/api/admin")
 public class US11Controller {
 
     private final US11Service us11Service;
@@ -16,8 +16,7 @@ public class US11Controller {
         this.us11Service = us11Service;
     }
 
-    // Endpoint para registrar un nuevo voluntariado
-    @PostMapping
+    @PostMapping("RegistrarVoluntariados")
     public ResponseEntity<VoluntariadosDTO> registrarVoluntariado(@RequestBody VoluntariadosDTO voluntariadosDTO) {
         return new ResponseEntity<>(us11Service.save(voluntariadosDTO), HttpStatus.CREATED);
     }

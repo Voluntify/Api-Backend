@@ -12,21 +12,20 @@ import java.util.Optional;
 @Service
 public class US13Service {
 
-    final US13Repository us13Repository;
+    @Autowired
+    private US13Repository us13Repository;
 
-    public US13Service(US13Repository us13Repository) {
-        this.us13Repository = us13Repository;
-    }
+    @Autowired
+    private ModelMapper modelMapper;
 
     public InscripcionesDTO approveOrRejectInscripcion(Long inscripcionId, boolean estado) {
-        ModelMapper modelMapper = new ModelMapper();
         Optional<Inscripciones> inscripcionOptional = us13Repository.findById(inscripcionId);
 
         if (inscripcionOptional.isPresent()) {
             Inscripciones inscripcion = inscripcionOptional.get();
-            inscripcion.setEstado(estado);
-            Inscripciones updatedInscripcion = us13Repository.save(inscripcion);
-            return modelMapper.map(updatedInscripcion, InscripcionesDTO.class);
+            inscripcion.setEstado(estado);  
+            Inscripciones updatedInscripcion = us13Repository.save(inscripcion);  
+            return modelMapper.map(updatedInscripcion, InscripcionesDTO.class);  
         }
         throw new IllegalArgumentException("Inscripción no encontrada.");
     }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/RegistrarCertificados")
+@RequestMapping("api/admin")
 public class US15Controller {
     final US15Service us15Service;
 
@@ -19,7 +19,7 @@ public class US15Controller {
         this.us15Service = us15Service;
     }
 
-    @PostMapping
+    @PostMapping("RegistrarCertificados")
     public ResponseEntity<CertificadosDTO> create(@RequestBody CertificadosDTO certificadosDTO) {
         return new ResponseEntity<>(us15Service.save(certificadosDTO), HttpStatus.CREATED);
     }

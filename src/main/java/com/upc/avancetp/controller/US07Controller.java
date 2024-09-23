@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/Registrar")
+@RequestMapping("api/user")
 public class US07Controller {
     final US07Service us07Service;
 
@@ -18,7 +18,7 @@ public class US07Controller {
         this.us07Service = us07Service;
     }
 
-    @PostMapping("/Notificaciones")
+    @PostMapping("/RegistrarNotificaciones")
     public ResponseEntity<NotificacionesDTO> create(@RequestBody NotificacionesDTO notificacionesDTO) {
         return new ResponseEntity<>(us07Service.save(notificacionesDTO), HttpStatus.CREATED);
     }

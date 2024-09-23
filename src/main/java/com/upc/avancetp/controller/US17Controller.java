@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/VerAsistencias")
+@RequestMapping("api/admin")
 public class US17Controller {
     final US17Service us17Service;
 
@@ -19,12 +19,12 @@ public class US17Controller {
         this.us17Service = us17Service;
     }
 
-    @GetMapping("DeTodosLosVoluntariados")
+    @GetMapping("VerAsistenciasDeTodosLosVoluntariados")
     public ResponseEntity<List<AsistenciasDTO>> ListaAsistencias() {
         return ResponseEntity.ok(us17Service.asistenciasMostrarVoluntariados());
     }
 
-    @GetMapping("PorNombreDeVoluntariado")
+    @GetMapping("VerAsistenciasPorNombreDeVoluntariado")
     public ResponseEntity<List<AsistenciasDTO>> ListaAsistenciasPorNombre(@RequestParam("name") String name) {
         return ResponseEntity.ok(us17Service.asistenciasporVoluntariadoMostrar(name));
     }

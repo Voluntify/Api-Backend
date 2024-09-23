@@ -32,7 +32,7 @@ public class US15Service {
         certificados.setUsuarios(usuarios);
         certificados = us15Repository.save(certificados);
 
-        modelMapper.map(certificadosDTO, certificadosDTO);
+        modelMapper.map(certificados, certificadosDTO);
         certificadosDTO.setId_organizaciones(certificados.getOrganizaciones().getCodigo());
         certificadosDTO.setId_usuarios(certificados.getUsuarios().getCodigo());
         return certificadosDTO;
