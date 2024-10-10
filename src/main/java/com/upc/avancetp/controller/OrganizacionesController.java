@@ -1,5 +1,6 @@
 package com.upc.avancetp.controller;
 
+import com.upc.avancetp.dto.InscripcionesDTO;
 import com.upc.avancetp.dto.OrganizacionesDTO;
 import com.upc.avancetp.dto.OrganizacionesPorNombreDTO;
 import com.upc.avancetp.dto.OrganizacionesTotalDTO;
@@ -33,5 +34,13 @@ public class OrganizacionesController {
     @PostMapping("api/RegistroDeOrganizacion")
     public ResponseEntity<OrganizacionesDTO> create(@RequestBody OrganizacionesDTO organizacionesDTO) {
         return new ResponseEntity<>(organizacionesService.save(organizacionesDTO), HttpStatus.CREATED);
+    }
+
+    @PutMapping("api/admin/SuscripcionDeOrganizacion")
+    public ResponseEntity<OrganizacionesDTO> suscripcionDeOrganizacion(
+            @RequestParam Long id,
+            @RequestParam boolean suscripcion_activa) {
+        OrganizacionesDTO updatedSuscripcion = organizacionesService.suscripcionDeOrganizacion(id, suscripcion_activa);
+        return ResponseEntity.ok(updatedSuscripcion);
     }
 }
