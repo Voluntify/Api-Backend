@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface US08Repository extends JpaRepository<Certificados, Long> {
+public interface CertificadosRepository extends JpaRepository<Certificados, Long> {
     @Query(value="SELECT cr.codigo as codigo, cr.fecha_emision as fecha, cr.estado as estado, o.nombre as nombre_organizacion FROM certificados cr\n" +
             "JOIN usuarios u ON cr.id_usuarios = u.codigo\n" +
             "JOIN organizaciones o ON cr.id_organizaciones = o.codigo\n" +

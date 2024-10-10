@@ -1,6 +1,5 @@
 package com.upc.avancetp.service;
 
-import com.upc.avancetp.dto.AsistenciasDTO;
 import com.upc.avancetp.dto.CategoriasDTO;
 import com.upc.avancetp.model.Categorias;
 import com.upc.avancetp.repository.CategoriasRepository;
@@ -8,7 +7,6 @@ import jakarta.persistence.Tuple;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 

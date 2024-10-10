@@ -2,8 +2,8 @@ package com.upc.avancetp.serviceImplements;
 
 import com.upc.avancetp.model.Organizaciones;
 import com.upc.avancetp.model.Usuarios;
-import com.upc.avancetp.repository.US01Repository;
-import com.upc.avancetp.repository.US09Repository;
+import com.upc.avancetp.repository.OrganizacionesRepository;
+import com.upc.avancetp.repository.UsuariosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,14 +18,14 @@ import java.util.List;
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
-    private US01Repository us01Repository;
+    private UsuariosRepository usuariosRepository;
     @Autowired
-    private US09Repository us09Repository;
+    private OrganizacionesRepository organizacionesRepository;
 
     @Override
     public UserDetails loadUserByUsername(String nombre) throws UsernameNotFoundException {
-        Usuarios usuarios = us01Repository.findByNombre(nombre);
-        Organizaciones organizaciones = us09Repository.findByNombre(nombre);
+        Usuarios usuarios = usuariosRepository.findByNombre(nombre);
+        Organizaciones organizaciones = organizacionesRepository.findByNombre(nombre);
 
         if (usuarios == null && organizaciones == null) {
             throw new UsernameNotFoundException(String.format("User or organization not exists", nombre));

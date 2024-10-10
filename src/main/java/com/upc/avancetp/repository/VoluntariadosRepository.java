@@ -6,10 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.time.LocalDate;
 import java.util.List;
 
-public interface US04Repository extends JpaRepository<Voluntariados, Long> {
+public interface VoluntariadosRepository extends JpaRepository<Voluntariados, Long> {
     @Query(value="select codigo as codigo, titulo as nombre, descripcion as descripcion, ubicacion as ubicacion, requisitos as requisitos from voluntariados", nativeQuery = true)
     List<Tuple> VoluntariadosTodos();
 

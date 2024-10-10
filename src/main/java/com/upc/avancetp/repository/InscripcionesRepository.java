@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface US12Repository extends JpaRepository<Inscripciones, Long> {
+public interface InscripcionesRepository extends JpaRepository<Inscripciones, Long> {
     @Query(value="SELECT i.* from inscripciones i\n" +
             "JOIN voluntariados v ON i.id_voluntariados = v.codigo \n" +
             "where v.titulo = :name", nativeQuery = true)
