@@ -1,6 +1,5 @@
 package com.upc.avancetp.service;
 
-import com.upc.avancetp.dto.HabilidadesDTO;
 import com.upc.avancetp.dto.InteresDTO;
 import com.upc.avancetp.model.Intereses;
 import com.upc.avancetp.repository.InteresRepository;

@@ -16,7 +16,7 @@ public class Intereses {
     private String nombre;
 
     @OneToMany(mappedBy = "intereses", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Intereses_Por_Usuarios> interesesPorUsuarios; //RELACION 1 A MUCHOS CON "Intereses_Por_Usuarios"
+    private List<InteresesPorUsuarios> interesesPorUsuarios; //RELACION 1 A MUCHOS CON "Intereses_Por_Usuarios"
 
     public Intereses(String nombre) {
         this.nombre = nombre;

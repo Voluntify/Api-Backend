@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -18,10 +17,10 @@ public class Habilidades {
     private String descripcion;
 
     @OneToMany(mappedBy = "habilidades", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Usuarios_Por_Habilidades> usuariosPorHabilidades; //RELACION 1 A MUCHOS CON "Usuarios_Por_Habilidades"
+    private List<UsuariosPorHabilidades> usuariosPorHabilidades; //RELACION 1 A MUCHOS CON "Usuarios_Por_Habilidades"
 
     @OneToMany(mappedBy = "habilidades", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Voluntariados_Por_Habilidades> voluntariadosPorHabilidades; //RELACION 1 A MUCHOS CON "Voluntariados_Por_Habilidades"
+    private List<VoluntariadosPorHabilidades> voluntariadosPorHabilidades; //RELACION 1 A MUCHOS CON "Voluntariados_Por_Habilidades"
 
     public Habilidades(String nombre, String descripcion) {
         this.nombre = nombre;

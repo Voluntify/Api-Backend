@@ -36,7 +36,7 @@ public class Voluntariados {
     private Organizaciones organizaciones;
 
     @OneToMany(mappedBy = "voluntariados", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Voluntariados_Por_Habilidades> voluntariadosPorHabilidades; //RELACION 1 A MUCHOS CON "Voluntariados_Por_Habilidades"
+    private List<VoluntariadosPorHabilidades> voluntariadosPorHabilidades; //RELACION 1 A MUCHOS CON "Voluntariados_Por_Habilidades"
 
     public Voluntariados(String titulo, String descripcion, LocalDate fecha_inicio, LocalDate fecha_fin, String ubicacion, String requisitos, Categorias categorias, Organizaciones organizaciones) {
         this.titulo = titulo;

@@ -7,7 +7,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class Usuarios_Por_Habilidades {
+
+@IdClass(InteresesPorUsuariosId.class)
+
+public class InteresesPorUsuarios {
     @Id
     @ManyToOne(fetch = FetchType.LAZY) //RELACION MUCHOS a 1
     @JoinColumn(name="id_usuarios")
@@ -15,11 +18,11 @@ public class Usuarios_Por_Habilidades {
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY) //RELACION MUCHOS a 1
-    @JoinColumn(name="id_habilidades")
-    private Habilidades habilidades;
+    @JoinColumn(name="id_intereses")
+    private Intereses intereses;
 
-    public Usuarios_Por_Habilidades(Usuarios usuarios, Habilidades habilidades) {
+    public InteresesPorUsuarios(Usuarios usuarios, Intereses intereses) {
         this.usuarios = usuarios;
-        this.habilidades = habilidades;
+        this.intereses = intereses;
     }
 }

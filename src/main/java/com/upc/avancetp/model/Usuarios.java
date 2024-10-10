@@ -24,7 +24,7 @@ public class Usuarios{
     private LocalDate fecha_registro;
 
     @OneToMany(mappedBy = "usuarios", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Intereses_Por_Usuarios> interesesPorUsuarios; //RELACION 1 A MUCHOS CON "Intereses_Por_Usuarios"
+    private List<InteresesPorUsuarios> interesesPorUsuarios; //RELACION 1 A MUCHOS CON "Intereses_Por_Usuarios"
 
     @OneToMany(mappedBy = "usuarios", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Notificaciones> notificaciones; //RELACION 1 A MUCHOS CON "Notificaciones"
@@ -39,7 +39,7 @@ public class Usuarios{
     private List<Certificados> certificados; //RELACION 1 A MUCHOS CON "Certificados"
 
     @OneToMany(mappedBy = "usuarios", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Usuarios_Por_Habilidades> usuariosPorHabilidades; //RELACION 1 A MUCHOS CON "Usuarios_Por_Habilidades"
+    private List<UsuariosPorHabilidades> usuariosPorHabilidades; //RELACION 1 A MUCHOS CON "Usuarios_Por_Habilidades"
 
     @OneToMany(mappedBy = "usuarios", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Roles_Usuarios> role;

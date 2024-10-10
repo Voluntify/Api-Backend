@@ -7,7 +7,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class Voluntariados_Por_Habilidades {
+
+@IdClass(VoluntariadosPorHabilidadesId.class)
+
+public class VoluntariadosPorHabilidades {
     @Id
     @ManyToOne(fetch = FetchType.LAZY) //RELACION MUCHOS a 1
     @JoinColumn(name="id_habilidades")
@@ -18,7 +21,7 @@ public class Voluntariados_Por_Habilidades {
     @JoinColumn(name="id_voluntariados")
     private Voluntariados voluntariados;
 
-    public Voluntariados_Por_Habilidades(Habilidades habilidades, Voluntariados voluntariados) {
+    public VoluntariadosPorHabilidades(Habilidades habilidades, Voluntariados voluntariados) {
         this.habilidades = habilidades;
         this.voluntariados = voluntariados;
     }

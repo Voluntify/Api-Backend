@@ -1,8 +1,6 @@
 package com.upc.avancetp.service;
 
-import com.upc.avancetp.dto.CategoriasDTO;
 import com.upc.avancetp.dto.HabilidadesDTO;
-import com.upc.avancetp.model.Categorias;
 import com.upc.avancetp.model.Habilidades;
 import com.upc.avancetp.repository.HabilidadesRepository;
 import jakarta.persistence.Tuple;
