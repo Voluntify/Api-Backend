@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class VoluntariadosService {
@@ -73,5 +75,18 @@ public class VoluntariadosService {
         voluntariadosDTO.setId_organizaciones(voluntariados.getOrganizaciones().getCodigo());
         voluntariadosDTO.setId_categorias(voluntariados.getCategorias().getCodigo());
         return voluntariadosDTO;
+    }
+
+    public VoluntariadosDTO eliminarVoluntariadoPorId(Long id) {
+        Optional<Voluntariados> voluntariadosList = voluntariadosRepository.findById(id);
+
+        if (voluntariadosList.isPresent()) {
+            Voluntariados voluntariados = voluntariadosList.get();
+            voluntariadosRepository.delete(voluntariados);
+            voluntariadosRepository.delete(voluntariados);
+            return null;
+        } else {
+            throw new NoSuchElementException("No existe un voluntariado con el ID: " + id);
+        }
     }
 }

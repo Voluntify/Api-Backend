@@ -1,5 +1,6 @@
 package com.upc.avancetp.controller;
 
+import com.upc.avancetp.dto.InscripcionesDTO;
 import com.upc.avancetp.dto.VoluntariadoPorNombreDTO;
 import com.upc.avancetp.dto.VoluntariadosDTO;
 import com.upc.avancetp.dto.VoluntariadosTotalDTO;
@@ -34,5 +35,11 @@ public class VoluntariadosController {
     @PostMapping("api/admin/RegistrarVoluntariados")
     public ResponseEntity<VoluntariadosDTO> registrarVoluntariado(@RequestBody VoluntariadosDTO voluntariadosDTO) {
         return new ResponseEntity<>(voluntariadosService.save(voluntariadosDTO), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("api/admin/EliminarVoluntariadoPorId")
+    public ResponseEntity<VoluntariadosDTO> eliminarVoluntariado(@RequestParam Long id) {
+        VoluntariadosDTO deleteVoluntariado = voluntariadosService.eliminarVoluntariadoPorId(id);
+        return ResponseEntity.ok(deleteVoluntariado);
     }
 }

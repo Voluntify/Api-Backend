@@ -95,6 +95,6 @@ public class InscripcionesService {
             Inscripciones updatedInscripcion = inscripcionesRepository.save(inscripcion);
             return modelMapper.map(updatedInscripcion, InscripcionesDTO.class);
         }
-        throw new IllegalArgumentException("Inscripción no encontrada.");
+        throw new IllegalArgumentException("Inscripcion no encontrada");
     }
 }

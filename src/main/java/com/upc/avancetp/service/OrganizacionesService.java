@@ -1,10 +1,8 @@
 package com.upc.avancetp.service;
 
-import com.upc.avancetp.dto.InscripcionesDTO;
 import com.upc.avancetp.dto.OrganizacionesDTO;
 import com.upc.avancetp.dto.OrganizacionesPorNombreDTO;
 import com.upc.avancetp.dto.OrganizacionesTotalDTO;
-import com.upc.avancetp.model.Inscripciones;
 import com.upc.avancetp.model.Organizaciones;
 import com.upc.avancetp.repository.OrganizacionesRepository;
 import jakarta.persistence.Tuple;
@@ -73,6 +71,6 @@ public class OrganizacionesService {
             Organizaciones updatedSuscripcion = organizacionesRepository.save(organizacion);
             return modelMapper.map(updatedSuscripcion, OrganizacionesDTO.class);
         }
-        throw new IllegalArgumentException("Organizacion no encontrada.");
+        throw new IllegalArgumentException("Organizacion no encontrada");
     }
 }
