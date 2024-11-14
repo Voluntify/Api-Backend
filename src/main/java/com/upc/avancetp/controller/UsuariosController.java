@@ -1,16 +1,16 @@
 package com.upc.avancetp.controller;
 
 import com.upc.avancetp.dto.UsuarioDTO;
+import com.upc.avancetp.dto.VoluntariadoPorNombreDTO;
 import com.upc.avancetp.service.UsuariosService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("api/RegistroDeNuevoUsuario")
+@RequestMapping
 public class UsuariosController {
     final UsuariosService usuariosService;
 
@@ -18,8 +18,15 @@ public class UsuariosController {
             this.usuariosService = usuariosService;
         }
 
-    @PostMapping
+    @PostMapping("api/RegistroDeNuevoUsuario")
     public ResponseEntity<UsuarioDTO> create(@RequestBody UsuarioDTO usuarioDTO) {
         return new ResponseEntity<>(usuariosService.save(usuarioDTO), HttpStatus.CREATED);
+    }
+
+    @GetMapping("api/user/perfil")
+    public ResponseEntity<List<UsuarioDTO>> getPerfil(
+            @RequestParam("name") String name
+    ){
+        return ResponseEntity.ok(usuariosService.getPerfil(name));
     }
 }
