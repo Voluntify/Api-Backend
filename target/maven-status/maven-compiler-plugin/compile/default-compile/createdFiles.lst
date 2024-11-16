@@ -1,4 +1,5 @@
 com\upc\avancetp\model\Reportes.class
+com\upc\avancetp\dto\InteresesPorPerfilDTO.class
 com\upc\avancetp\model\Capacitaciones.class
 com\upc\avancetp\model\UsuariosPorHabilidades.class
 com\upc\avancetp\model\InteresesPorUsuarios.class
@@ -13,6 +14,7 @@ com\upc\avancetp\securities\JwtAuthenticationEntryPoint.class
 com\upc\avancetp\securities\JwtRequestFilter.class
 com\upc\avancetp\securities\JwtTokenUtil.class
 com\upc\avancetp\service\AsistenciasService.class
+com\upc\avancetp\dto\UsuarioCodigoDTO.class
 com\upc\avancetp\repository\AsistenciasRepository.class
 com\upc\avancetp\repository\VoluntariadosPorHabilidadesRepository.class
 com\upc\avancetp\service\VoluntariadosPorHabilidadesService.class
@@ -23,6 +25,7 @@ com\upc\avancetp\dto\HabilidadesDTO.class
 com\upc\avancetp\service\CategoriasService.class
 com\upc\avancetp\dto\OrganizacionesDTO.class
 com\upc\avancetp\dto\OrganizacionesPorNombreDTO.class
+com\upc\avancetp\dto\HabilidadesPorPerfilDTO.class
 com\upc\avancetp\model\Habilidades.class
 com\upc\avancetp\repository\CertificadosRepository.class
 com\upc\avancetp\service\OrganizacionesService.class
@@ -36,7 +39,9 @@ com\upc\avancetp\controller\VoluntariadosController.class
 com\upc\avancetp\controller\JwtAuthenticationController.class
 com\upc\avancetp\dto\OrganizacionesTotalDTO.class
 com\upc\avancetp\repository\InteresRepository.class
+com\upc\avancetp\dto\VoluntariadosPorNombreTotalDTO.class
 com\upc\avancetp\AvanceTpApplication.class
+com\upc\avancetp\dto\VoluntariadoPorNombreAdminDTODTO.class
 com\upc\avancetp\service\HabilidadeService.class
 com\upc\avancetp\repository\UsuariosPorHabilidadesRepository.class
 com\upc\avancetp\repository\VoluntariadosRepository.class
@@ -47,6 +52,7 @@ com\upc\avancetp\model\Organizaciones.class
 com\upc\avancetp\model\VoluntariadosPorHabilidadesId.class
 com\upc\avancetp\controller\InteresController.class
 com\upc\avancetp\model\InteresesPorUsuariosId.class
+com\upc\avancetp\dto\AsistenciaPorUsuarioDTO.class
 com\upc\avancetp\model\Usuarios.class
 com\upc\avancetp\dto\VoluntariadosTotalDTO.class
 com\upc\avancetp\model\Asistencias.class
@@ -70,6 +76,7 @@ com\upc\avancetp\controller\HabilidadesController.class
 com\upc\avancetp\model\Categorias.class
 com\upc\avancetp\controller\CategoriasController.class
 com\upc\avancetp\dto\AsistenciasDTO.class
+com\upc\avancetp\dto\VoluntariadosPorOrganizacionDTO.class
 com\upc\avancetp\service\CertificadosService.class
 com\upc\avancetp\dto\InteresDTO.class
 com\upc\avancetp\controller\UsuariosPorHabilidadesController.class
