@@ -1,16 +1,17 @@
 package com.upc.avancetp.controller;
 
+import com.upc.avancetp.dto.HabilidadesPorPerfilDTO;
+import com.upc.avancetp.dto.InteresesPorPerfilDTO;
 import com.upc.avancetp.dto.InteresesPorUsuariosDTO;
 import com.upc.avancetp.service.InteresesPorUsuariosService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("api/user")
+@RequestMapping
 public class InteresesPorUsuariosController {
     final InteresesPorUsuariosService interesesPorUsuariosService;
 
@@ -18,8 +19,22 @@ public class InteresesPorUsuariosController {
         this.interesesPorUsuariosService = interesesPorUsuariosService;
     }
 
-    @PostMapping("RegistroInteresPorUsuario")
+    @PostMapping("api/user/RegistroInteresPorUsuario")
     public ResponseEntity<InteresesPorUsuariosDTO> create(@RequestBody InteresesPorUsuariosDTO interesesPorUsuariosDTO) {
         return new ResponseEntity<>(interesesPorUsuariosService.save(interesesPorUsuariosDTO), HttpStatus.CREATED);
+    }
+
+    @GetMapping("api/user/InteresesPorPerfil")
+    public ResponseEntity<List<InteresesPorPerfilDTO>> getInteresesPorPerfil(
+            @RequestParam("name") String name
+    ){
+        return ResponseEntity.ok(interesesPorUsuariosService.getInteresesPorPerfil(name));
+    }
+
+    @GetMapping("api/admin/InteresesPorPerfilByAdmin")
+    public ResponseEntity<List<InteresesPorPerfilDTO>> getInteresesPorPerfilByAdmin(
+            @RequestParam("codigo") Long codigo
+    ){
+        return ResponseEntity.ok(interesesPorUsuariosService.getInteresesPorPerfilByAdmin(codigo));
     }
 }

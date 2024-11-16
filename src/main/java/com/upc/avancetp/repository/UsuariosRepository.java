@@ -13,4 +13,10 @@ public interface UsuariosRepository extends JpaRepository<Usuarios, Long> {
 
     @Query(value = "SELECT * from usuarios u WHERE u.nombre = :name", nativeQuery = true)
     List<Tuple> ObtenerPerfil(@Param("name") String name);
+
+    @Query(value = "SELECT * from usuarios u WHERE u.codigo = :codigo", nativeQuery = true)
+    List<Tuple> ObtenerPerfilByAdmin(@Param("codigo") Long codigo);
+
+    @Query(value = "SELECT u.codigo from usuarios u WHERE u.nombre = :name", nativeQuery = true)
+    List<Tuple> ObtenerCodigoUsuario(@Param("name") String name);
 }

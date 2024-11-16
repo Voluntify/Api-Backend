@@ -16,4 +16,16 @@ public interface AsistenciasRepository extends JpaRepository<Asistencias, Long> 
             "JOIN voluntariados v ON a.id_voluntariados = v.codigo\n" +
             "where v.titulo = :name", nativeQuery= true)
     List<Tuple> asistenciasPorVoluntariado(@Param("name") String name);
+
+    @Query(value="SELECT v.titulo as titulo, v.descripcion as descripcion FROM voluntariados v " +
+            "JOIN asistencias a ON a.id_voluntariados = v.codigo " +
+            "JOIN usuarios u ON u.codigo = a.id_usuarios " +
+            "WHERE u.nombre = :name AND a.estado_asistencia = TRUE", nativeQuery= true)
+    List<Tuple> NombreDeVoluntariadoRealizado(@Param("name") String name);
+
+    @Query(value="SELECT v.titulo as titulo, v.descripcion as descripcion FROM voluntariados v " +
+            "JOIN asistencias a ON a.id_voluntariados = v.codigo " +
+            "JOIN usuarios u ON u.codigo = a.id_usuarios " +
+            "WHERE u.codigo = :codigo AND a.estado_asistencia = TRUE", nativeQuery= true)
+    List<Tuple> NombreDeVoluntariadoRealizadoByAdmin(@Param("codigo") Long codigo);
 }

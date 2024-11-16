@@ -29,8 +29,8 @@ public class InscripcionesController {
     }
 
     @GetMapping("api/admin/VerInscripcionesPorUsuario")
-    public ResponseEntity<List<InscripcionesDTO>> ListaInscripcionesUsuarios(@RequestParam("name") String name) {
-        return ResponseEntity.ok(inscripcionesService.inscripcionesMostrarPorUsuario(name));
+    public ResponseEntity<List<InscripcionesDTO>> ListaInscripcionesUsuarios(@RequestParam("codigo") Long codigo, @RequestParam("codigo2") Long codigo2) {
+        return ResponseEntity.ok(inscripcionesService.inscripcionesMostrarPorUsuario(codigo, codigo2));
     }
 
 

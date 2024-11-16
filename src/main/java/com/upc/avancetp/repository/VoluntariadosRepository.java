@@ -14,4 +14,21 @@ public interface VoluntariadosRepository extends JpaRepository<Voluntariados, Lo
 
     @Query(value="SELECT v.codigo as codigo, v.titulo AS nombre, v.descripcion AS descripcion FROM voluntariados v WHERE v.titulo = :name;", nativeQuery = true)
     List<Tuple> VoluntariadoPorNombre(@Param("name") String name);
+
+    @Query(value="SELECT v.codigo as codigo, v.titulo AS nombre, " +
+            "v.descripcion, v.fecha_inicio as fecha_inicio, v.fecha_fin as fecha_fin, v.ubicacion as ubicacion, " +
+            "v.requisitos as requisitos FROM voluntariados v WHERE v.titulo = :name;", nativeQuery = true)
+    List<Tuple> InformacionTotalDeVoluntariadoPorNombre(@Param("name") String name);
+
+    @Query(value="SELECT v.codigo as codigo, v.titulo AS titulo, " +
+            "v.descripcion as descripcion, v.fecha_inicio as fecha_inicio, v.fecha_fin as fecha_fin, v.ubicacion as ubicacion, " +
+            "v.requisitos as requisitos, v.id_organizaciones as id_organizaciones, " +
+            "v.id_categorias as id_categorias FROM voluntariados v JOIN organizaciones o " +
+            "ON o.codigo = v.id_organizaciones WHERE o.nombre = :name", nativeQuery = true)
+    List<Tuple> VoluntariadosPorOrganzacion(@Param("name") String name);
+
+    @Query(value="SELECT v.codigo as codigo, v.titulo AS titulo, " +
+            "v.descripcion as descripcion, v.fecha_inicio as fecha_inicio, v.fecha_fin as fecha_fin, v.ubicacion as ubicacion, " +
+            "v.requisitos as requisitos FROM voluntariados v WHERE v.titulo = :name", nativeQuery = true)
+    List<Tuple> VoluntariadosPorNombreAdmin(@Param("name") String name);
 }

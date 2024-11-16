@@ -16,6 +16,6 @@ public interface InscripcionesRepository extends JpaRepository<Inscripciones, Lo
 
     @Query(value="SELECT i.* from inscripciones i\n" +
             "JOIN usuarios u ON i.id_usuarios = u.codigo \n" +
-            "where u.nombre = :name", nativeQuery = true)
-    List<Tuple> inscripcionesPorUsuario(@Param("name") String name);
+            "where u.codigo = :codigo and i.codigo = :codigo2", nativeQuery = true)
+    List<Tuple> inscripcionesPorUsuario(@Param("codigo") Long codigo, @Param("codigo2") Long codigo2);
 }

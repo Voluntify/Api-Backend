@@ -1,9 +1,6 @@
 package com.upc.avancetp.controller;
 
-import com.upc.avancetp.dto.InscripcionesDTO;
-import com.upc.avancetp.dto.OrganizacionesDTO;
-import com.upc.avancetp.dto.OrganizacionesPorNombreDTO;
-import com.upc.avancetp.dto.OrganizacionesTotalDTO;
+import com.upc.avancetp.dto.*;
 import com.upc.avancetp.service.OrganizacionesService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +28,18 @@ public class OrganizacionesController {
         return ResponseEntity.ok(organizacionesService.organizacionesPorNombre(name));
     }
 
+    @GetMapping("api/admin/VerOrganizacionesPorNombre")
+    public ResponseEntity<List<OrganizacionesPorNombreDTO>> ListaOrganizacionesPorNombre(
+            @RequestParam("name") String name) {
+        return ResponseEntity.ok(organizacionesService.organizacionesPorNombre(name));
+    }
+
+    @GetMapping("api/user/VerOrganizacionesPorNombreB")
+    public ResponseEntity<List<OrganizacionesPorNombreDTO>> ListaOrganizacionesPorNombreB(
+            @RequestParam("name") String name) {
+        return ResponseEntity.ok(organizacionesService.organizacionesPorNombre(name));
+    }
+
     @PostMapping("api/RegistroDeOrganizacion")
     public ResponseEntity<OrganizacionesDTO> create(@RequestBody OrganizacionesDTO organizacionesDTO) {
         return new ResponseEntity<>(organizacionesService.save(organizacionesDTO), HttpStatus.CREATED);
@@ -42,5 +51,13 @@ public class OrganizacionesController {
             @RequestParam boolean suscripcion_activa) {
         OrganizacionesDTO updatedSuscripcion = organizacionesService.suscripcionDeOrganizacion(id, suscripcion_activa);
         return ResponseEntity.ok(updatedSuscripcion);
+    }
+
+    @PutMapping("api/admin/ContrasenaModificar")
+    public ResponseEntity<UsuarioDTO> ContrasenaModificacion(
+            @RequestParam Long codigo,
+            @RequestParam String contrasena) {
+        UsuarioDTO updatedCorreo = organizacionesService.ContrasenaModificacion(codigo, contrasena);
+        return ResponseEntity.ok(updatedCorreo);
     }
 }

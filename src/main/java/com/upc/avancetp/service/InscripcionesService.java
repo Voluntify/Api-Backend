@@ -64,8 +64,8 @@ public class InscripcionesService {
         return listInscr;
     }
 
-    public List<InscripcionesDTO> inscripcionesMostrarPorUsuario(String name) {
-        List<Tuple> tuplas = inscripcionesRepository.inscripcionesPorUsuario(name);
+    public List<InscripcionesDTO> inscripcionesMostrarPorUsuario(Long codigo, Long codigo2) {
+        List<Tuple> tuplas = inscripcionesRepository.inscripcionesPorUsuario(codigo, codigo2);
         List<InscripcionesDTO> listInscr = new ArrayList<>();
         InscripcionesDTO iscripcion;
 

@@ -1,5 +1,6 @@
 package com.upc.avancetp.service;
 
+import com.upc.avancetp.dto.AsistenciaPorUsuarioDTO;
 import com.upc.avancetp.dto.AsistenciasDTO;
 import com.upc.avancetp.model.Asistencias;
 import com.upc.avancetp.model.Usuarios;
@@ -80,6 +81,38 @@ public class AsistenciasService {
                     fecha,
                     tuple.get("id_usuarios", Long.class),
                     tuple.get("id_voluntariados", Long.class)
+            );
+
+            listRecaud.add(recaud);
+        }
+        return listRecaud;
+    }
+
+    public List<AsistenciaPorUsuarioDTO> NombreDeVoluntariadoRealizado(String name) {
+        List<Tuple> tuplas = asistenciasRepository.NombreDeVoluntariadoRealizado(name);
+        List<AsistenciaPorUsuarioDTO> listRecaud = new ArrayList<>();
+        AsistenciaPorUsuarioDTO recaud;
+
+        for (Tuple tuple : tuplas) {
+            recaud = new AsistenciaPorUsuarioDTO(
+                    tuple.get("titulo", String.class),
+                    tuple.get("descripcion", String.class)
+            );
+
+            listRecaud.add(recaud);
+        }
+        return listRecaud;
+    }
+
+    public List<AsistenciaPorUsuarioDTO> NombreDeVoluntariadoRealizadoByAdmin(Long codigo) {
+        List<Tuple> tuplas = asistenciasRepository.NombreDeVoluntariadoRealizadoByAdmin(codigo);
+        List<AsistenciaPorUsuarioDTO> listRecaud = new ArrayList<>();
+        AsistenciaPorUsuarioDTO recaud;
+
+        for (Tuple tuple : tuplas) {
+            recaud = new AsistenciaPorUsuarioDTO(
+                    tuple.get("titulo", String.class),
+                    tuple.get("descripcion", String.class)
             );
 
             listRecaud.add(recaud);

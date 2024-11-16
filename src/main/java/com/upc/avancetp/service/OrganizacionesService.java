@@ -3,7 +3,9 @@ package com.upc.avancetp.service;
 import com.upc.avancetp.dto.OrganizacionesDTO;
 import com.upc.avancetp.dto.OrganizacionesPorNombreDTO;
 import com.upc.avancetp.dto.OrganizacionesTotalDTO;
+import com.upc.avancetp.dto.UsuarioDTO;
 import com.upc.avancetp.model.Organizaciones;
+import com.upc.avancetp.model.Usuarios;
 import com.upc.avancetp.repository.OrganizacionesRepository;
 import jakarta.persistence.Tuple;
 import org.modelmapper.ModelMapper;
@@ -72,5 +74,18 @@ public class OrganizacionesService {
             return modelMapper.map(updatedSuscripcion, OrganizacionesDTO.class);
         }
         throw new IllegalArgumentException("Organizacion no encontrada");
+    }
+
+    public UsuarioDTO ContrasenaModificacion(Long codigo, String contrasena) {
+        ModelMapper modelMapper = new ModelMapper();
+        Optional<Organizaciones> ContrasenaNew = organizacionesRepository.findById(codigo);
+
+        if (ContrasenaNew.isPresent()) {
+            Organizaciones organizaciones = ContrasenaNew.get();
+            organizaciones.setContrasena(contrasena);
+            Organizaciones updatedConstrasena = organizacionesRepository.save(organizaciones);
+            return modelMapper.map(updatedConstrasena, UsuarioDTO.class);
+        }
+        throw new IllegalArgumentException("Usuario no encontrado");
     }
 }
