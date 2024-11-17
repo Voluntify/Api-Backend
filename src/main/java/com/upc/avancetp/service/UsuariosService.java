@@ -9,6 +9,8 @@ import com.upc.avancetp.model.Usuarios;
 import com.upc.avancetp.repository.UsuariosRepository;
 import jakarta.persistence.Tuple;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -18,15 +20,19 @@ import java.util.Optional;
 
 @Service
 public class UsuariosService {
-    final UsuariosRepository usuariosRepository;
+    private final UsuariosRepository usuariosRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public UsuariosService(UsuariosRepository usuariosRepository) {
         this.usuariosRepository = usuariosRepository;
+        this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
     public UsuarioDTO save (UsuarioDTO usuarioDTO) {
         ModelMapper modelMapper = new ModelMapper();
         Usuarios usuarios = modelMapper.map(usuarioDTO, Usuarios.class);
+        // Encriptar la contraseña antes de guardar
+        usuarios.setContrasena(passwordEncoder.encode(usuarios.getContrasena()));
         usuarios = usuariosRepository.save(usuarios);
         return modelMapper.map(usuarios, UsuarioDTO.class);
     }

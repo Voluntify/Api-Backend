@@ -9,6 +9,8 @@ import com.upc.avancetp.model.Usuarios;
 import com.upc.avancetp.repository.OrganizacionesRepository;
 import jakarta.persistence.Tuple;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,14 +20,17 @@ import java.util.Optional;
 @Service
 public class OrganizacionesService {
     final OrganizacionesRepository organizacionesRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public OrganizacionesService(OrganizacionesRepository organizacionesRepository) {
         this.organizacionesRepository = organizacionesRepository;
+        this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
     public OrganizacionesDTO save(OrganizacionesDTO organizacionesDTO) {
         ModelMapper modelMapper = new ModelMapper();
         Organizaciones organizaciones = modelMapper.map(organizacionesDTO, Organizaciones.class);
+        organizaciones.setContrasena(passwordEncoder.encode(organizaciones.getContrasena()));
         organizaciones = organizacionesRepository.save(organizaciones);
         return modelMapper.map(organizaciones, OrganizacionesDTO.class);
     }
