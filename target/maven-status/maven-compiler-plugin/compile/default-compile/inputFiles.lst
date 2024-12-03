@@ -67,6 +67,8 @@ C:\Users\Matias\Desktop\ARQUI-DOCS\avance-tp\src\main\java\com\upc\avancetp\repo
 C:\Users\Matias\Desktop\ARQUI-DOCS\avance-tp\src\main\java\com\upc\avancetp\repository\InteresRepository.java
 C:\Users\Matias\Desktop\ARQUI-DOCS\avance-tp\src\main\java\com\upc\avancetp\repository\NotificacionesRepository.java
 C:\Users\Matias\Desktop\ARQUI-DOCS\avance-tp\src\main\java\com\upc\avancetp\repository\OrganizacionesRepository.java
+C:\Users\Matias\Desktop\ARQUI-DOCS\avance-tp\src\main\java\com\upc\avancetp\repository\Roles_OrganizacionesRepository.java
+C:\Users\Matias\Desktop\ARQUI-DOCS\avance-tp\src\main\java\com\upc\avancetp\repository\Roles_UsuariosRepository.java
 C:\Users\Matias\Desktop\ARQUI-DOCS\avance-tp\src\main\java\com\upc\avancetp\repository\UsuariosPorHabilidadesRepository.java
 C:\Users\Matias\Desktop\ARQUI-DOCS\avance-tp\src\main\java\com\upc\avancetp\repository\UsuariosRepository.java
 C:\Users\Matias\Desktop\ARQUI-DOCS\avance-tp\src\main\java\com\upc\avancetp\repository\VoluntariadosPorHabilidadesRepository.java

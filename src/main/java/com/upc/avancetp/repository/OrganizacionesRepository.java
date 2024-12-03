@@ -16,4 +16,7 @@ public interface OrganizacionesRepository extends JpaRepository<Organizaciones, 
 
     @Query(value = "SELECT o.codigo as codigo, o.nombre as nombre, o.descripcion as descripcion, o.correo as correo, o.telefono as telefono FROM organizaciones o WHERE o.nombre = :name", nativeQuery = true)
     List<Tuple> OrganizacionesPorNombre(@Param("name") String name);
+
+    @Query(value = "SELECT max(codigo) from organizaciones", nativeQuery = true)
+    Long ObtenerMaximoCodigo();
 }

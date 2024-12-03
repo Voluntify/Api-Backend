@@ -7,6 +7,7 @@ import com.upc.avancetp.dto.UsuarioDTO;
 import com.upc.avancetp.model.Organizaciones;
 import com.upc.avancetp.model.Usuarios;
 import com.upc.avancetp.repository.OrganizacionesRepository;
+import com.upc.avancetp.repository.Roles_OrganizacionesRepository;
 import jakarta.persistence.Tuple;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,17 +22,30 @@ import java.util.Optional;
 public class OrganizacionesService {
     final OrganizacionesRepository organizacionesRepository;
     private final PasswordEncoder passwordEncoder;
+    private final Roles_OrganizacionesRepository roles_organizacionesRepository;
 
-    public OrganizacionesService(OrganizacionesRepository organizacionesRepository) {
+    public OrganizacionesService(OrganizacionesRepository organizacionesRepository, Roles_OrganizacionesRepository roles_organizacionesRepository) {
         this.organizacionesRepository = organizacionesRepository;
+        this.roles_organizacionesRepository = roles_organizacionesRepository;
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
     public OrganizacionesDTO save(OrganizacionesDTO organizacionesDTO) {
         ModelMapper modelMapper = new ModelMapper();
         Organizaciones organizaciones = modelMapper.map(organizacionesDTO, Organizaciones.class);
+        // Encriptar la contraseña antes de guardar
         organizaciones.setContrasena(passwordEncoder.encode(organizaciones.getContrasena()));
+
+        // Obtener el codigo maximo de la tabla usuarios
+        long codigo = organizacionesRepository.ObtenerMaximoCodigo();
+        codigo += 1;
+
+        //Guardar el usuario
         organizaciones = organizacionesRepository.save(organizaciones);
+
+        //Insertar el rol ADMIN en la tabla roles_usuarios
+        roles_organizacionesRepository.insertAdminRole(codigo);
+
         return modelMapper.map(organizaciones, OrganizacionesDTO.class);
     }
 

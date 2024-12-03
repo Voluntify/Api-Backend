@@ -1,9 +1,7 @@
 package com.upc.avancetp.controller;
 
-import com.upc.avancetp.dto.OrganizacionesDTO;
 import com.upc.avancetp.dto.UsuarioCodigoDTO;
 import com.upc.avancetp.dto.UsuarioDTO;
-import com.upc.avancetp.dto.VoluntariadoPorNombreDTO;
 import com.upc.avancetp.service.UsuariosService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

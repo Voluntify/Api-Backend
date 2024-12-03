@@ -2,7 +2,6 @@ package com.upc.avancetp.serviceImplements;
 
 import com.upc.avancetp.model.Usuarios;
 import com.upc.avancetp.repository.UsuariosRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -15,7 +14,6 @@ public class UserServiceImplements {
         this.userRepository = userRepository;
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
-
 
     public Usuarios save(Usuarios users) {
         users.setContrasena(passwordEncoder.encode(users.getContrasena()));

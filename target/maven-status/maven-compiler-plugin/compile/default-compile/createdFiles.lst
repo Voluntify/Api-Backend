@@ -59,6 +59,7 @@ com\upc\avancetp\service\VoluntariadosPorHabilidadesService.class
 com\upc\avancetp\dto\VoluntariadosDTO.class
 com\upc\avancetp\model\Notificaciones.class
 com\upc\avancetp\dto\HabilidadesDTO.class
+com\upc\avancetp\repository\Roles_UsuariosRepository.class
 com\upc\avancetp\dto\OrganizacionesDTO.class
 com\upc\avancetp\dto\OrganizacionesPorNombreDTO.class
 com\upc\avancetp\model\Habilidades.class
@@ -74,6 +75,7 @@ com\upc\avancetp\repository\InscripcionesRepository.class
 com\upc\avancetp\securities\WebSecurityConfig.class
 com\upc\avancetp\model\Inscripciones.class
 com\upc\avancetp\controller\InteresController.class
+com\upc\avancetp\repository\Roles_OrganizacionesRepository.class
 com\upc\avancetp\dto\VoluntariadosTotalDTO.class
 com\upc\avancetp\service\InscripcionesService.class
 com\upc\avancetp\controller\AsistenciasController.class

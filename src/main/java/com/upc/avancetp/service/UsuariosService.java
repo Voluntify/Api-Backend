@@ -6,6 +6,7 @@ import com.upc.avancetp.dto.UsuarioCodigoDTO;
 import com.upc.avancetp.dto.UsuarioDTO;
 import com.upc.avancetp.model.Organizaciones;
 import com.upc.avancetp.model.Usuarios;
+import com.upc.avancetp.repository.Roles_UsuariosRepository;
 import com.upc.avancetp.repository.UsuariosRepository;
 import jakarta.persistence.Tuple;
 import org.modelmapper.ModelMapper;
@@ -22,9 +23,11 @@ import java.util.Optional;
 public class UsuariosService {
     private final UsuariosRepository usuariosRepository;
     private final PasswordEncoder passwordEncoder;
+    private final Roles_UsuariosRepository roles_usuariosRepository;
 
-    public UsuariosService(UsuariosRepository usuariosRepository) {
+    public UsuariosService(UsuariosRepository usuariosRepository, Roles_UsuariosRepository roles_usuariosRepository) {
         this.usuariosRepository = usuariosRepository;
+        this.roles_usuariosRepository = roles_usuariosRepository;
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
@@ -33,7 +36,17 @@ public class UsuariosService {
         Usuarios usuarios = modelMapper.map(usuarioDTO, Usuarios.class);
         // Encriptar la contraseña antes de guardar
         usuarios.setContrasena(passwordEncoder.encode(usuarios.getContrasena()));
+
+        // Obtener el codigo maximo de la tabla usuarios
+        long codigo = usuariosRepository.ObtenerMaximoCodigo();
+        codigo = codigo + 1;
+
+        //Guardar el usuario
         usuarios = usuariosRepository.save(usuarios);
+
+        //Insertar el rol USER en la tabla roles_usuarios
+        roles_usuariosRepository.insertUserRole(codigo);
+
         return modelMapper.map(usuarios, UsuarioDTO.class);
     }
 
